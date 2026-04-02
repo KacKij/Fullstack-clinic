@@ -1,0 +1,19 @@
+spring:
+
+  application:
+    name: backend
+
+  datasource:
+    url: jdbc:${DB_URL:default}
+    username: ${DB_USERNAME:default}
+    password: ${DB_PASSWORD:default}
+
+  jpa:
+    hibernate:
+      ddl-auto=validate:
+
+  flyway:
+    enabled: true
+
+server:
+  port: 8080
