@@ -22,5 +22,5 @@ CREATE TABLE patients (
     created_at              TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP,
     updated_at              TIMESTAMP WITH TIME ZONE,
 
-    created_by              BIGINT REFERENCES users(id)
+    created_by              BIGINT NOT NULL
 );

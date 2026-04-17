@@ -13,9 +13,9 @@ CREATE TABLE address (
 );
 
 CREATE TABLE address_change_log (
-                                    id BIGSERIAL PRIMARY KEY,
-                                    old_address_id BIGINT,
-                                    new_address_id BIGINT NOT NULL,
-                                    changed_by BIGINT NOT NULL,
-                                    changed_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP
+    id                  BIGSERIAL PRIMARY KEY,
+    old_address_id      BIGINT,
+    new_address_id      BIGINT NOT NULL,
+    changed_by          BIGINT NOT NULL,
+    changed_at          TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP
 );

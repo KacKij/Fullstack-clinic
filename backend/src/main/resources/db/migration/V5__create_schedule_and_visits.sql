@@ -7,7 +7,7 @@ CREATE TABLE doctor_shift_schedules (
     start_time TIME NOT NULL,
     end_time TIME NOT NULL,
 
-    created_by BIGINT REFERENCES users(id),
+    created_by BIGINT NOT NULL,
     created_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP,
     updated_at TIMESTAMP WITH TIME ZONE,
 
@@ -37,7 +37,7 @@ CREATE TABLE visits (
     status visit_status NOT NULL DEFAULT 'SCHEDULED',
     notes TEXT,
 
-    created_by INT REFERENCES users(id),
+    created_by BIGINT NOT NULL,
     created_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP,
     updated_at TIMESTAMP WITH TIME ZONE,
 

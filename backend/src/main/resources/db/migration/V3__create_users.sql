@@ -5,7 +5,7 @@ CREATE TABLE users (
     firstname           VARCHAR(100) NOT NULL,
     lastname            VARCHAR(100) NOT NULL,
     email               VARCHAR(150) NOT NULL UNIQUE,
-    password_hash       VARCHAR(511) NOT NULL UNIQUE,
+    password_hash       VARCHAR(511) NOT NULL,
 
     enabled             BOOLEAN DEFAULT TRUE,
     occupation          VARCHAR(100),
