@@ -5,7 +5,7 @@ CREATE TABLE patients (
     lastname                VARCHAR(100) NOT NULL,
 
     pesel                   VARCHAR(11) UNIQUE NOT NULL,
-    email                   VARCHAR(150),
+    email                   VARCHAR(150) UNIQUE,
 
     phone_number            VARCHAR(20),
     phone_number_ext        VARCHAR(10),
