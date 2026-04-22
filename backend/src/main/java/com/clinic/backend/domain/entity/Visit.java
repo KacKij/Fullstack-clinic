@@ -1,6 +1,7 @@
 package com.clinic.backend.domain.entity;
 
 
+import com.clinic.backend.domain.enums.VisitStatus;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.ToString;
