@@ -1,17 +1,17 @@
 CREATE TABLE patients (
     id                      BIGSERIAL PRIMARY KEY,
 
-    firstname               VARCHAR(100) NOT NULL,
-    lastname                VARCHAR(100) NOT NULL,
+    firstname               VARCHAR(128) NOT NULL,
+    lastname                VARCHAR(128) NOT NULL,
 
     pesel                   VARCHAR(11) UNIQUE NOT NULL,
-    email                   VARCHAR(150) UNIQUE,
+    email                   VARCHAR(256) UNIQUE NOT NULL,
 
-    phone_number            VARCHAR(20),
-    phone_number_ext        VARCHAR(10),
+    phone_number            VARCHAR(64),
+    phone_number_ext        VARCHAR(32),
 
     date_of_birth           DATE,
-    gender                  VARCHAR(20),
+    gender                  VARCHAR(32),
 
     address_id              BIGINT REFERENCES address(id),
 

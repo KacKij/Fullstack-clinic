@@ -27,7 +27,7 @@ public class User {
     @Column(length = 128)
     private String lastname;
 
-    @Column(unique = true, length = 255)
+    @Column(unique = true, length = 256)
     private String email;
 
     @Column(name = "password_hash",  nullable = false)
@@ -37,7 +37,7 @@ public class User {
     @Column(nullable = false)
     private Boolean enabled;
 
-    @Column(length = 255)
+    @Column(length = 256)
     private String occupation;
 
     @ManyToMany(fetch = FetchType.LAZY)

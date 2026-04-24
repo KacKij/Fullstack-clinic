@@ -1,17 +1,17 @@
 CREATE TABLE users (
     id                  BIGSERIAL PRIMARY KEY,
 
-    username            VARCHAR(100) NOT NULL UNIQUE,
-    firstname           VARCHAR(100) NOT NULL,
-    lastname            VARCHAR(100) NOT NULL,
-    email               VARCHAR(150) NOT NULL UNIQUE,
-    password_hash       VARCHAR(511) NOT NULL,
+    username            VARCHAR(128) NOT NULL UNIQUE,
+    firstname           VARCHAR(128) NOT NULL,
+    lastname            VARCHAR(128) NOT NULL,
+    email               VARCHAR(256) NOT NULL UNIQUE,
+    password_hash       VARCHAR(512) NOT NULL,
 
     enabled             BOOLEAN DEFAULT TRUE,
-    occupation          VARCHAR(100),
+    occupation          VARCHAR(256),
 
-    phone_number        VARCHAR(20),
-    phone_number_ext    VARCHAR(10),
+    phone_number        VARCHAR(64),
+    phone_number_ext    VARCHAR(32),
 
     address_id          BIGINT REFERENCES address(id),
 

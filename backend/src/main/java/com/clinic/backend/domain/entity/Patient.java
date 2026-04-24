@@ -1,6 +1,7 @@
 package com.clinic.backend.domain.entity;
 
 
+import com.clinic.backend.domain.enums.Gender;
 import jakarta.persistence.*;
 import lombok.Data;
 import lombok.ToString;
@@ -26,7 +27,7 @@ public class Patient {
     @Column(nullable = false, unique = true, length = 11)
     private String pesel;
 
-    @Column(nullable = false, unique = true, length = 255)
+    @Column(nullable = false, unique = true, length = 256)
     private String email;
 
     @Column(name = "phone_number", length = 64)
@@ -38,8 +39,9 @@ public class Patient {
     @Column(name = "date_of_birth")
     private LocalDate dateOfBirth;
 
+    @Enumerated(EnumType.STRING)
     @Column(length = 32)
-    private String gender;
+    private Gender gender;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "address_id")
