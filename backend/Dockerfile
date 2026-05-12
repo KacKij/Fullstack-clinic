@@ -1,14 +1,17 @@
-# Version derived from online tutorial
-FROM amazoncorretto:21.0.4-alpine3.18
-
-# Set the working directory in the container
+FROM maven:amazoncorretto AS builder
 WORKDIR /app
 
-# Copy the JAR file into the container
-COPY target/backend-0.0.1-SNAPSHOT.jar app.jar
+COPY pom.xml .
+RUN mvn dependency:resolve dependency:resolve-plugins -B
 
-# Expose the port that the application will run on
+COPY src ./src
+RUN mvn package -DskipTests -B
+
+FROM amazoncorretto:21-alpine
+WORKDIR /app
+
+COPY --from=builder /app/target/*.jar app.jar
+
 EXPOSE 8080
 
-# Run the JAR file
 ENTRYPOINT ["java", "-jar", "app.jar"]
