@@ -1,6 +1,8 @@
 package com.clinic.backend.domain.util;
 
 import com.clinic.backend.domain.enums.Gender;
+import com.clinic.backend.exception.InvalidPeselException;
+import com.clinic.backend.exception.enums.PeselValidationError;
 
 import java.time.DateTimeException;
 import java.time.LocalDate;
@@ -10,22 +12,23 @@ public final class PeselUtil {
     private PeselUtil() {
     }
 
-    public static boolean isValid(String pesel) {
-        if (pesel == null || !pesel.matches("\\d{11}")) {
-            return false;
+    public static void validateOrThrow(String pesel) {
+        if (pesel == null || pesel.length() != 11) {
+            throw new InvalidPeselException(PeselValidationError.WRONG_LENGTH);
+        }
+
+        if (!pesel.matches("\\d{11}")) {
+            throw new InvalidPeselException(PeselValidationError.NON_NUMERIC);
         }
 
         if (!hasValidChecksum(pesel)) {
-            return false;
+            throw new InvalidPeselException(PeselValidationError.WRONG_CHECKSUM);
         }
 
-        return extractDateOfBirth(pesel) != null;
+        extractDateOfBirth(pesel);
     }
 
     public static LocalDate extractDateOfBirth(String pesel) {
-        if (pesel == null || pesel.length() != 11) {
-            return null;
-        }
 
         try {
             int year = Integer.parseInt(pesel.substring(0, 2));
@@ -49,21 +52,17 @@ public final class PeselUtil {
                 century = 1800;
                 month -= 80;
             } else {
-                return null;
+                throw new InvalidPeselException(PeselValidationError.INVALID_DATE);
             }
 
             return LocalDate.of(century + year, month, day);
 
         } catch (DateTimeException | NumberFormatException ex) {
-            return null;
+            throw new InvalidPeselException(PeselValidationError.INVALID_DATE);
         }
     }
 
     public static Gender extractGender(String pesel) {
-        if (!isValid(pesel)) {
-            return Gender.OTHER;
-        }
-
         int digit = Character.getNumericValue(pesel.charAt(9));
         return digit % 2 == 0 ? Gender.FEMALE : Gender.MALE;
     }

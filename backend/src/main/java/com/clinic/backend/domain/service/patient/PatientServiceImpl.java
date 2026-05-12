@@ -25,9 +25,7 @@ public class PatientServiceImpl implements PatientService {
     @Override
     public Long createPatient(PatientCreateRequest request, Long actorUserId) {
 
-        if (!PeselUtil.isValid(request.pesel())) {
-            throw new InvalidPeselException();
-        }
+        PeselUtil.validateOrThrow(request.pesel());
 
         validateDuplicates(request);
 

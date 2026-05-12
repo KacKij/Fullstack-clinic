@@ -1,12 +1,17 @@
 package com.clinic.backend.exception;
 
+import com.clinic.backend.exception.enums.PeselValidationError;
+
 public class InvalidPeselException extends RuntimeException {
 
-    public InvalidPeselException() {
-        super("Invalid PESEL");
+    private final PeselValidationError error;
+
+    public InvalidPeselException(PeselValidationError error) {
+        super(error.toString());
+        this.error = error;
     }
 
-    public InvalidPeselException(String message) {
-        super(message);
+    public PeselValidationError getError() {
+        return error;
     }
 }
