@@ -1,0 +1,42 @@
+{
+	"nodes":[
+		{"id":"46856a3726a49db5","type":"text","text":"Starting the app localy on a docker","x":-280,"y":-210,"width":300,"height":60,"color":"4"},
+		{"id":"627b99499b09c3ee","type":"text","text":"```terminal\ndocker compose up --build -d\n```","x":128,"y":-211,"width":312,"height":60,"color":"4"},
+		{"id":"3a050f1fc854c836","type":"text","text":"<font color=\"#31859b\">**docker compose**</font> - Define and run multi-container applications with Docker\n**<font color=\"#31859b\">up</font>** - Create and start containers\n**<font color=\"#92d050\">--build</font>** - Build or rebuild services\n**<font color=\"#92d050\">-d</font>** - Detached mode: Run containers in the background","x":440,"y":-480,"width":440,"height":180,"color":"3"},
+		{"id":"79e74fe3ecf8918c","type":"text","text":"This command creates and starts containers on docker based on instructions in **compose.yaml** and **Dockerfile**\n\nThis starts the **backend** and a **database** for the app, not quite frontend yet!?!","x":540,"y":-274,"width":360,"height":186,"color":"4"},
+		{"id":"5706d0b6583dab8e","type":"text","text":"The \"everything is fine\" commands","x":-275,"y":60,"width":295,"height":60,"color":"4"},
+		{"id":"8a25e1596d086aa4","type":"text","text":"```terminal\ndocker compose down\n```","x":128,"y":60,"width":252,"height":60,"color":"4"},
+		{"id":"05aea078cc0dd439","type":"text","text":"Stop all services (keeps data)","x":500,"y":60,"width":250,"height":60,"color":"4"},
+		{"id":"89466517f69b0e3a","type":"text","text":"Stop and **delete database volume** (wipe all DB data)","x":500,"y":650,"width":250,"height":80,"color":"2"},
+		{"id":"18e51a8add2b5e9d","type":"text","text":"**<font color=\"#92d050\">-v</font>** or **<font color=\"#92d050\">--volumes</font>** - Remove named volumes declared in the \"volumes\" section of the Compose file and anonymous volumes attached to containers","x":335,"y":460,"width":345,"height":120,"color":"3"},
+		{"id":"78870f6d4364beba","type":"text","text":"Spicy commands","x":-275,"y":660,"width":295,"height":60,"color":"2"},
+		{"id":"88d9535e794ef2ff","type":"text","text":"```terminal\ndocker compose down -v\n```","x":130,"y":660,"width":265,"height":60,"color":"2"},
+		{"id":"864ad01a1d2105a5","type":"text","text":"again","x":320,"y":140,"width":91,"height":50},
+		{"id":"00ac59ec42e6ce17","type":"text","text":"```terminal\ndocker compose up --build -d\n```","x":140,"y":240,"width":311,"height":60,"color":"4"},
+		{"id":"92501c15edc4c636","type":"text","text":"Rebuild and restart after code changes","x":542,"y":240,"width":250,"height":60,"color":"4"},
+		{"id":"23a828c36269230d","type":"text","text":"```terminal\ndocker compose build --no-cache\n```\nthan\n```terminal\ndocker compose up -d\n```","x":128,"y":840,"width":372,"height":184,"color":"2"},
+		{"id":"851964c4d9660578","type":"text","text":"Rebuild without using any cache","x":588,"y":902,"width":250,"height":60,"color":"2"},
+		{"id":"bc05f5143425f29b","type":"text","text":"TODO think of a good name","x":-275,"y":1360,"width":295,"height":60,"color":"1"},
+		{"id":"6f45d05a27b428f5","type":"text","text":"```terminal\ndocker compose down -v --rmi local\n```","x":128,"y":1360,"width":372,"height":60,"color":"1"},
+		{"id":"fb13f756fdad8e84","type":"text","text":"Remove everything (containers, networks, images built from the **compose.yaml** file)","x":625,"y":1341,"width":290,"height":99,"color":"1"},
+		{"id":"adb0dc55357e9c1e","x":404,"y":1100,"width":309,"height":140,"color":"3","type":"text","text":"**<font color=\"#92d050\">--rmi</font>** - Remove images used by services. \"local\" remove only images that don't have a custom tag (\"local\"|\"all\")"}
+	],
+	"edges":[
+		{"id":"2a1003e434690947","fromNode":"46856a3726a49db5","fromSide":"right","toNode":"627b99499b09c3ee","toSide":"left"},
+		{"id":"e9b00ec623ed77b2","fromNode":"627b99499b09c3ee","fromSide":"top","toNode":"3a050f1fc854c836","toSide":"left"},
+		{"id":"863bbf41ff18139a","fromNode":"627b99499b09c3ee","fromSide":"right","toNode":"79e74fe3ecf8918c","toSide":"left"},
+		{"id":"ddecc5a670750198","fromNode":"5706d0b6583dab8e","fromSide":"right","toNode":"8a25e1596d086aa4","toSide":"left"},
+		{"id":"af059469c48b0ec1","fromNode":"8a25e1596d086aa4","fromSide":"right","toNode":"05aea078cc0dd439","toSide":"left"},
+		{"id":"9c02ba111fd6466d","fromNode":"78870f6d4364beba","fromSide":"right","toNode":"88d9535e794ef2ff","toSide":"left"},
+		{"id":"b0f1dca074b59cc0","fromNode":"88d9535e794ef2ff","fromSide":"right","toNode":"89466517f69b0e3a","toSide":"left"},
+		{"id":"64d4b7b103d4810f","fromNode":"88d9535e794ef2ff","fromSide":"top","toNode":"18e51a8add2b5e9d","toSide":"left"},
+		{"id":"4ed71ac884397bd0","fromNode":"5706d0b6583dab8e","fromSide":"right","toNode":"00ac59ec42e6ce17","toSide":"left"},
+		{"id":"07f279772da692d9","fromNode":"00ac59ec42e6ce17","fromSide":"top","toNode":"864ad01a1d2105a5","toSide":"bottom"},
+		{"id":"4a7a50bd4c94be20","fromNode":"00ac59ec42e6ce17","fromSide":"right","toNode":"92501c15edc4c636","toSide":"left"},
+		{"id":"d58ea131af864ad0","fromNode":"78870f6d4364beba","fromSide":"right","toNode":"23a828c36269230d","toSide":"left"},
+		{"id":"24a8fc883ce3f298","fromNode":"23a828c36269230d","fromSide":"right","toNode":"851964c4d9660578","toSide":"left"},
+		{"id":"a17976e77b40d054","fromNode":"bc05f5143425f29b","fromSide":"right","toNode":"6f45d05a27b428f5","toSide":"left"},
+		{"id":"465c81299b45e517","fromNode":"6f45d05a27b428f5","fromSide":"right","toNode":"fb13f756fdad8e84","toSide":"left"},
+		{"id":"ed67c12933345234","fromNode":"6f45d05a27b428f5","fromSide":"top","toNode":"adb0dc55357e9c1e","toSide":"left"}
+	]
+}

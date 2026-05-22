@@ -96,7 +96,4 @@ class PeselUtilTest {
 
     @Nested
     class ExtractGenderTests {}
-
-    @Nested
-    class ChecksumTests {}
 }
